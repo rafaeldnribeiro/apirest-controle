@@ -1,0 +1,70 @@
+plugins {
+	id 'org.springframework.boot' version '2.5.3'
+	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+	id 'java'
+}
+
+group = 'dio.projeto'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '11'
+
+configurations {
+	compileOnly {
+		extendsFrom annotationProcessor
+	}
+}
+
+repositories {
+	mavenCentral()
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	//Configurações do spring MVC(jTraz funcionalidades para;atender as requisições HTTP;
+	// delegar responsabilidades de processamento de dados para outros componentes e preparar a resposta que precisa ser dada;
+	implementation group: 'org.springframework.boot', name: 'spring-boot-starter-web', version: '2.5.3'
+	//Dependencia para persistecia JPA que utiliza o hibernate para servir de ORM;
+	implementation group: 'org.springframework.boot', name: 'spring-boot-starter-data-jpa', version: '2.5.3'
+	//Auto-configuração, Reload;
+	implementation group: 'org.springframework.boot', name: 'spring-boot-devtools', version: '2.5.3'
+
+	//Responsavel por fazer parse do jason para o objeto Java automaticamente
+	compileOnly group: 'com.fasterxml.jackson.dataformat', name: 'jackson-dataformat-xml', version: '2.13.0-rc1'
+
+	//Conector do SGBD MySQL
+	runtimeOnly group: 'mysql', name: 'mysql-connector-java', version: '8.0.26'
+
+	//Ajuda na abstração do código, exemplo escrita de gets e sets
+	compileOnly group: 'org.projectlombok', name: 'lombok', version: '1.18.20'
+	annotationProcessor 'org.projectlombok:lombok:1.18.20'
+
+	//Conector do H2
+	implementation group: 'com.h2database', name: 'h2', version: '1.4.200'
+
+
+	//Dependencia para testes e documentação
+	implementation group: 'io.springfox', name: 'springfox-swagger2', version: '2.9.2'
+	implementation group: 'io.springfox', name: 'springfox-swagger-ui', version: '2.9.2'
+	implementation group: 'io.springfox', name: 'springfox-bean-validators', version: '2.9.2'
+
+	//Auditoria da API, abstrair regras de negocio
+	implementation group: 'org.hibernate', name: 'hibernate-envers', version: '5.5.4.Final'
+	implementation group: 'org.hibernate.validator', name: 'hibernate-validator', version: '7.0.1.Final'
+
+
+	//Start dos testes; com JUnit
+	testImplementation(group: 'org.springframework.boot', name: 'spring-boot-starter-test', version: '2.5.3') {
+		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
+	}
+}
+
+test {
+	useJUnitPlatform()
+}
+
+test {
+	useJUnitPlatform()
+}
