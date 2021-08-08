@@ -23,8 +23,6 @@ Workshop do projeto em [digitalinnovation.one]( https://web.digitalinnovation.on
 
 **Alterações realizadas: 
 
-*Removido pacote e classe 'Service',  **CRUD** definido na classe JornadaTrabalhoController;*
-
 *Implementado properties prod e dev;*
 
 *Corrigido visualização da documentação no Swagger;*
